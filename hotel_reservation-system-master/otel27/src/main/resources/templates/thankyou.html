@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserve Room</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reserve.css}" />
+</head>
+<body>
+
+<h1>Reserve Your Room</h1>
+
+<div class="reserve-container">
+    <form class="reserve-form" th:action="@{/reserve/checkout}" method="post">
+        <h2>Rezervasyon Detayları</h2>
+
+        <!-- Oda adı (readonly olabilir) -->
+        <input type="text" th:value="${room.name}" readonly />
+
+        <img th:src="@{'/images/rooms/' + ${room.roomPictureName}}" alt="Room Image" class="room-image" />
+
+        <!-- Başlangıç Tarihi -->
+        <label for="reservationDate">Başlangıç Tarihi:</label>
+        <input type="date" name="reservationDate" id="reservationDate" required />
+
+        <input type="hidden" name="roomId" th:value="${room.id}" />
+
+        <!-- Bitiş Tarihi -->
+        <label for="endDate">Bitiş Tarihi:</label>
+        <input type="date" name="endDate" id="endDate" required />
+
+        <!-- Kişi sayısı -->
+        <label for="numOfPeople">Kişi Sayısı</label>
+        <input type="number" name="numOfPeople" id="numOfPeople" placeholder="Kişi Sayısı" min="1"
+               th:max="${room.size}" required />
+
+        <!-- Ödeme bilgileri -->
+        <h2>Ödeme Bilgileri</h2>
+        <label for="cardHolderName">Kart Sahibi Adı:</label>
+        <input type="text" name="cardHolderName" id="cardHolderName" placeholder="Kart Sahibi Adı" required />
+
+        <label for="cardNumber">Kart Numarası:</label>
+        <input type="text" name="cardNumber" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX"
+               pattern="\d{4} \d{4} \d{4} \d{4}" required />
+
+        <label for="expiryDate">Son Kullanma Tarihi:</label>
+        <input type="month" name="expiryDate" id="expiryDate" required />
+
+        <label for="cvv">CVV:</label>
+        <input type="password" name="cvv" id="cvv" placeholder="XXX" pattern="\d{3}" required />
+
+        <!-- Rezervasyon yapma butonu -->
+        <button type="submit">Rezerve Et ve Öde</button>
+    </form>
+</div>
+
+</body>
+</html>

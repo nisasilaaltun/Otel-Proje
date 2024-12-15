@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+</head>
+<body>
+<div class="login-container">
+    <h2>Giriş Yap</h2>
+    <form action="#" th:action="@{/login}" method="post">
+        <div class="form-group">
+            <label for="email">E-posta:</label>
+            <input type="email" id="email" name="email" placeholder="E-posta adresinizi giriniz" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" name="password" placeholder="Şifrenizi giriniz" required />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn">Giriş Yap</button>
+        </div>
+    </form>
+    <div class="extra-links">
+        <p>Üye değil misiniz? <a href="/register">Üye ol</a></p>
+        <p>Otel yöneticisi misiniz? <a href="/admin/login">Yönetici Girişi</a></p>
+    </div>
+</div>
+</body>
+</html>

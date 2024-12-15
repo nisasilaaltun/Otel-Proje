@@ -1,0 +1,125 @@
+/* Genel Ayarlar */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #a29bfe, #dfe6e9); /* Başlangıç renk geçişi */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: gradient-animation 12s ease-in-out infinite; /* Yavaş ve pürüzsüz geçiş */
+}
+
+/* Gradient Animation */
+@keyframes gradient-animation {
+    0% { background: linear-gradient(to right, #a29bfe, #dfe6e9); } /* Başlangıç */
+    25% { background: linear-gradient(to right, #6c5ce7, #a29bfe); } /* Yumuşak geçiş */
+    50% { background: linear-gradient(to right, #81ecec, #6c5ce7); } /* Yumuşak geçiş */
+    75% { background: linear-gradient(to right, #dfe6e9, #a29bfe); } /* Yumuşak geçiş */
+    100% { background: linear-gradient(to right, #a29bfe, #dfe6e9); } /* Başlangıç */
+}
+
+/* Login Konteyner */
+.login-container {
+    background: rgba(255, 255, 255, 0.9); /* Hafif şeffaf beyaz arka plan */
+    border: 2px solid #9b7ef7;
+    border-radius: 16px;
+    padding: 30px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out; /* Animasyon süresi artırıldı */
+}
+
+/* Başlık */
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #6b52c7;
+}
+
+/* Form Grupları */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #9b7ef7;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #f9f6ff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #6b52c7;
+    outline: none;
+    box-shadow: 0 0 6px rgba(107, 82, 199, 0.5);
+}
+
+/* Buton */
+.btn {
+    width: 100%;
+    background: #9b7ef7;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: #6b52c7;
+    transform: translateY(-2px);
+}
+
+/* Ekstra Linkler */
+.extra-links {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.extra-links a {
+    color: #6b52c7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .login-container {
+        width: 90%;
+        padding: 20px;
+    }
+}

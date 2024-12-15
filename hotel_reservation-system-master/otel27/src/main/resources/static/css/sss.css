@@ -1,0 +1,102 @@
+/* Accordion Section */
+#sss-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f1f5f8; /* Daha açık bir arka plan rengi */
+    border-radius: 10px; /* Kenarları yuvarlatmak */
+}
+
+#sss-section h2 {
+    text-align: center;
+    color: #3b2d4f; /* Başlık rengi koyu mavi tonlarında */
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+.accordion-item {
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.accordion-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #5a3e69; /* Başlık arka planı mavi tonunda */
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: white; /* Başlık metni beyaz renkte */
+    flex: 1;
+}
+
+.toggle-icon {
+    font-size: 1.5em;
+    color: white;
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    background-color: white;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-content p {
+    margin: 0;
+    padding: 20px 0;
+    color: #555; /* İçerik rengi gri tonlarında */
+    line-height: 1.6;
+}
+
+.accordion-item.active .toggle-icon {
+    transform: rotate(45deg);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 300px;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    background-color: #8a5890; /* Buton rengi mavi */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #edb1f8; /* Buton hover rengi daha koyu mavi */
+    transform: translateY(-2px);
+}
+
+/* General Styling for SSS Page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ecf0f1; /* Genel arka plan rengi açık gri */
+    margin: 0;
+    padding: 0;
+}

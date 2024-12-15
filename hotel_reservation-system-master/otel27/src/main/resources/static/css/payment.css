@@ -1,0 +1,141 @@
+/* payment.css */
+
+/* Genel Stiller */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f5f0fc; /* Hafif pastel mor tonları */
+    color: #4a3f6a; /* Zarif koyu mor */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: #6a5b8e; /* Başlıklar için belirgin mor */
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Kart Stilleri */
+.card {
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #e6e2f0);
+    box-shadow: 0 6px 15px rgba(102, 78, 158, 0.2);
+    padding: 20px;
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(102, 78, 158, 0.3);
+}
+
+.card-header {
+    background-color: #ece4f7;
+    color: #4a3f6a;
+    font-weight: 700;
+    border-bottom: 2px solid #d4cfe4;
+    padding: 15px;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Düğme Stilleri */
+.btn-primary {
+    background-color: #8c72d8;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #7b63c4;
+    box-shadow: 0 4px 10px rgba(123, 99, 196, 0.4);
+}
+
+.btn-primary:active {
+    background-color: #6c56b0;
+    box-shadow: 0 2px 6px rgba(108, 86, 176, 0.5);
+}
+
+/* Form Kontrolleri */
+.form-control {
+    border: 1px solid #d4cfe4;
+    border-radius: 6px;
+    padding: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 15px;
+}
+
+.form-control:focus {
+    border-color: #8c72d8;
+    box-shadow: 0 0 8px rgba(140, 114, 216, 0.3);
+    outline: none;
+}
+
+label {
+    font-weight: 600;
+    color: #5a496e;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Konteyner */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(102, 78, 158, 0.15);
+}
+
+/* Ekstra Detaylar */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(140, 114, 216, 0.1) 25%, transparent 60%);
+    z-index: -1;
+}
+
+input::placeholder {
+    color: #b3a7cc;
+    font-style: italic;
+}
+
+/* Hover Etkileri */
+.card-header:hover {
+    background-color: #dcd3f0;
+    color: #7b63c4;
+}
+
+label:hover {
+    color: #8c72d8;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .card {
+        margin: 15px 0;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+}

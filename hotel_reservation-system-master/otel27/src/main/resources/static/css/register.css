@@ -1,0 +1,203 @@
+/* Genel Stil */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #a29bfe, #dfe6e9);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: gradient-animation 8s ease infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradient-animation {
+    0% { background: linear-gradient(to right, #a29bfe, #dfe6e9); }
+    50% { background: linear-gradient(to right, #dfe6e9, #81ecec); }
+    100% { background: linear-gradient(to right, #a29bfe, #dfe6e9); }
+}
+
+/* Kayıt Konteyneri */
+.register-container {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(to right, #6c5ce7, #a29bfe);
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    width: 100%;
+    overflow: hidden;
+    animation: fade-in 1.5s ease;
+}
+
+/* Fade-in Animation */
+@keyframes fade-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Sol Bölüm */
+.left-section {
+    flex: 1;
+    background: linear-gradient(to bottom, #6c5ce7, #81ecec);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    animation: slide-in-left 1.5s ease;
+}
+
+.left-section h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.left-section p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: #dfe6e9;
+}
+
+.watch-demo-btn {
+    background-color: #fff;
+    color: #6c5ce7;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.watch-demo-btn:hover {
+    background-color: #6c5ce7;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Sağ Bölüm */
+.right-section {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+    border-radius: 0 15px 15px 0;
+    animation: slide-in-right 1.5s ease;
+}
+
+.right-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #6c5ce7;
+}
+
+/* Animasyonlar */
+@keyframes slide-in-left {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-right {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Form Grubu */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 8px rgba(108, 92, 231, 0.4);
+    outline: none;
+}
+
+/* Kayıt Butonu */
+.btn {
+    background-color: #6c5ce7;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(108, 92, 231, 0.3);
+}
+
+.btn:hover {
+    background-color: #81ecec;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(108, 92, 231, 0.5);
+}
+
+/* Giriş Yap Linki */
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-link p {
+    font-size: 14px;
+    color: #555;
+}
+
+.login-link a {
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+    color: #81ecec;
+    text-decoration: underline;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+        border-radius: 15px;
+    }
+
+    .left-section {
+        border-radius: 15px 15px 0 0;
+        padding: 30px;
+    }
+
+    .right-section {
+        border-radius: 0 0 15px 15px;
+        padding: 30px;
+    }
+}

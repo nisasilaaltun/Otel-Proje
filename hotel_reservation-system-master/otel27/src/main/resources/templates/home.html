@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renkli Rüyalar Oteli</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/sss.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/wheel.css}" />
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="navbar-container">
+        <a href="/home" class="logo">Renkli Rüyalar</a>
+        <div class="nav-links">
+            <a href="/rooms">Odaları Görüntüle</a>
+            <a href="/cancel-reservation" class="cancel-button">Rezervasyonu İptal Et</a>
+            <button id="wheelButton" class="wheel-button" onclick="showWheelModal()">🎡 Çarkı Çevir</button>
+        </div>
+        <div class="user-actions">
+            <span th:if="${session.loggedInUser != null}">
+                Hoşgeldin, <b th:text="${session.loggedInUser}"></b>!
+                <a th:href="@{/logout}" class="logout-button">Çıkış Yap</a>
+            </span>
+            <span th:if="${session.loggedInUser == null}">
+                <a th:href="@{/login}" class="auth-button">Login</a>
+                <a th:href="@{/register}" class="auth-button">Kayıt Ol</a>
+            </span>
+        </div>
+    </div>
+</nav>
+
+<!-- Çark Modal -->
+<div id="wheelModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeWheelModal()">&times;</span>
+        <div class="wheel-container">
+            <div class="wheel-pointer"></div>
+            <div class="wheel" id="wheel">
+                <div class="wheel-section" data-discount="5">%5</div>
+                <div class="wheel-section" data-discount="10">%10</div>
+                <div class="wheel-section" data-discount="15">%15</div>
+                <div class="wheel-section" data-discount="20">%20</div>
+                <div class="wheel-section" data-discount="25">%25</div>
+                <div class="wheel-section" data-discount="30">%30</div>
+                <div class="wheel-section" data-discount="35">%35</div>
+                <div class="wheel-section" data-discount="40">%40</div>
+            </div>
+        </div>
+        <button id="spinButton" onclick="spinWheel()">Çarkı Çevir</button>
+        <div id="result"></div>
+    </div>
+</div>
+
+<!-- Hoşgeldiniz Bölümü -->
+<section class="welcome-section" th:style="'background-image: url(' + @{/homeimages/otel.jpg} + '); background-size: cover; background-position: center; background-repeat: no-repeat;'">
+    <h1>Renkli Rüyalar Oteli'ne Hoşgeldiniz</h1>
+    <p>Konforun ve lüksün buluşma noktası.</p>
+    <a href="/rooms" class="cta-button">Odaları Keşfet</a>
+</section>
+
+<!-- Otel Resimleri Galerisi -->
+<section id="hotel-gallery">
+    <h2>Otelimizin Görselleri</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img th:src="@{'/homeimages/resim1.webp'}" alt="Otel Resmi 1" class="room-image">
+        </div>
+        <div class="gallery-item">
+            <img th:src="@{'/homeimages/resim2.jpg'}" alt="Otel Resmi 2" class="room-image">
+        </div>
+        <div class="gallery-item">
+            <img th:src="@{'/homeimages/resim3.jpg'}" alt="Otel Resmi 3" class="room-image">
+        </div>
+        <div class="gallery-item">
+            <img th:src="@{'/homeimages/resim4.jpg'}" alt="Otel Resmi 4" class="room-image">
+        </div>
+    </div>
+</section>
+
+<!-- Otel Hakkında Bölümü -->
+<section id="hotel-info">
+    <h2>Otelimiz Hakkında</h2>
+    <p>Renkli Rüyalar Oteli, misafirlerine lüks bir deneyim sunmak amacıyla inşa edilmiştir. Otelimiz, modern olanaklarla donatılmış, huzurlu bir ortamda konaklama imkanı sunuyor.</p>
+    <ul>
+        <li>Ücretsiz Wi-Fi</li>
+        <li>Spa ve Sağlık Merkezi</li>
+        <li>Restoran ve Kafeler</li>
+        <li>Yüzme Havuzu</li>
+        <li>24 Saat Resepsiyon</li>
+    </ul>
+</section>
+
+<!-- Yorumlar Bölümü -->
+<section id="comments-section">
+    <h2>Yorumlar</h2>
+    <div class="comment-form">
+        <input type="text" placeholder="Adınız" id="nameInput" />
+        <textarea placeholder="Yorumunuz" id="commentInput"></textarea>
+        <button onclick="submitComment()">Yorum Yap</button>
+    </div>
+    <div class="comments-list" id="comments-list">
+        <!-- Yorumlar burada gösterilecek -->
+    </div>
+</section>
+
+<!-- SSS Bölümü -->
+<section id="contact-info">
+    <div class="contact-container">
+        <div class="contact-details">
+            <h2>İletişim Bilgileri</h2>
+            <ul>
+                <li>📧 Email: info@renklioteli.com</li>
+                <li>📞 Telefon: +90 555 123 45 67</li>
+                <li>📍 Adres: Beylikdüzü, İstanbul, Türkiye</li>
+            </ul>
+        </div>
+        <div class="sss-container">
+            <a href="/sss" class="sss-button" target="_blank">Sıkça Sorulan Sorular</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p> 2024 Renkli Rüyalar Oteli - Tüm hakları saklıdır.</p>
+</footer>
+
+<!-- Harici JavaScript Dosyaları -->
+<script src="/js/wheel.js"></script>
+<script src="/js/comments.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script>
+// Çarkı göster ve gizle
+function showWheelModal() {
+    document.getElementById('wheelModal').style.display = 'block';
+}
+
+function closeWheelModal() {
+    document.getElementById('wheelModal').style.display = 'none';
+}
+
+// Çarkı döndürme fonksiyonu
+let spinning = false;
+
+function spinWheel() {
+    if (spinning) return;
+    spinning = true;
+
+    const wheel = document.getElementById('wheel');
+    const randomDeg = Math.floor(Math.random() * 360) + 3600; // 3600 derece üstü dönüş
+    wheel.style.transition = 'transform 4s ease-out';
+    wheel.style.transform = `rotate(${randomDeg}deg)`;
+
+    // Dönüş tamamlandığında sonucu göster
+    setTimeout(() => {
+        spinning = false;
+        const sections = document.querySelectorAll('.wheel-section');
+        const degPerSection = 360 / sections.length;
+        const finalDegree = randomDeg % 360;
+        const index = Math.floor((finalDegree + degPerSection / 2) / degPerSection);
+
+        // Sonucu göster
+        const discount = sections[index].getAttribute('data-discount');
+        document.getElementById('result').innerText = `%10 indirim kazandınız!`;
+
+
+    }, 4000);
+}
+
+// Yorum ekleme fonksiyonu
+function submitComment() {
+    const name = document.getElementById('nameInput').value;
+    const comment = document.getElementById('commentInput').value;
+
+    if (!name || !comment) {
+        alert("Lütfen adınızı ve yorumunuzu girin.");
+        return;
+    }
+
+    addComment(`${name}: ${comment}`);
+
+    // Yorumları sıfırlama
+    document.getElementById('nameInput').value = '';
+    document.getElementById('commentInput').value = '';
+}
+
+// Yorumları ekleyen fonksiyon
+function addComment(commentText) {
+    const commentList = document.getElementById('comments-list');
+    const newComment = document.createElement('div');
+    newComment.classList.add('comment');
+    newComment.innerText = commentText;
+    commentList.appendChild(newComment);
+}
+</script>
+
+</body>
+</html>

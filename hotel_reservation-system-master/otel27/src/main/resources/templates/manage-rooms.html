@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odaları Yönet</title>
+  <link rel="stylesheet" th:href="@{/css/manage-rooms.css}">
+</head>
+<body>
+<div class="container">
+  <h1 class="title">Odaları Yönet</h1>
+
+  <!-- Success/Error Messages -->
+  <div th:if="${param.success}" class="alert alert-success">
+    İşlem başarıyla tamamlandı.
+  </div>
+  <div th:if="${param.error}" class="alert alert-error">
+    İşlem sırasında bir hata oluştu.
+  </div>
+
+  <!-- Add Room Button -->
+  <div class="action-buttons">
+    <a href="/admin/add-room" class="add-btn">Yeni Oda Ekle</a>
+  </div>
+
+  <!-- Rooms Table -->
+  <table class="rooms-table">
+    <thead>
+    <tr>
+      <th>Oda Adı</th>
+      <th>Fiyat</th>
+      <th>Kapasite</th>
+      <th>Durum</th>
+      <th>İşlemler</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="room : ${rooms}">
+      <td th:text="${room.name}"></td>
+      <td th:text="${room.price}"></td>
+      <td th:text="${room.size}"></td>
+      <td th:text="${room.available ? 'Müsait' : 'Dolu'}"></td>
+      <td class="actions">
+        <form th:action="@{/admin/delete-room/{id}(id=${room.id})}" method="post" style="display: inline;">
+          <button type="submit" class="delete-btn" onclick="return confirm('Bu odayı silmek istediğinizden emin misiniz?')">Sil</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

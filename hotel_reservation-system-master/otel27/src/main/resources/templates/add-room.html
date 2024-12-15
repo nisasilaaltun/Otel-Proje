@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oda Ekle</title>
+  <link rel="stylesheet" th:href="@{/css/manage-rooms.css}">
+</head>
+<body>
+<div class="container">
+  <h1 class="title">Yeni Oda Ekle</h1>
+
+  <!-- Success/Error Messages -->
+  <div th:if="${param.success}" class="alert alert-success">
+    Oda başarıyla eklendi.
+  </div>
+  <div th:if="${param.error}" class="alert alert-error">
+    Oda eklenirken bir hata oluştu.
+  </div>
+
+  <form action="/admin/add-room" method="post" class="room-form">
+    <div class="form-group">
+      <label for="name">Oda Adı:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Fiyat:</label>
+      <input type="number" id="price" name="price" step="0.01" required>
+    </div>
+
+    <div class="form-group">
+      <label for="size">Kapasite:</label>
+      <input type="number" id="size" name="size" required>
+    </div>
+
+    <button type="submit" class="submit-btn">Oda Ekle</button>
+    <a href="/admin/manage-rooms" class="cancel-btn">İptal</a>
+  </form>
+</div>
+</body>
+</html>

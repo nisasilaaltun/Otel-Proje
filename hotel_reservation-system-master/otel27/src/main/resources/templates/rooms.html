@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Odalar</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/rooms.css}" />
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <a href="/home">Ana sayfa</a>
+    <a href="/rooms">Odaları Görüntüle</a>
+
+    <!-- Kullanıcı Durumu -->
+    <div style="float: right;">
+        <span th:if="${session.loggedInUser != null}">
+            Hoşgeldin, <b th:text="${session.loggedInUser}"></b>!
+            <a th:href="@{/logout}" style="margin-left: 10px;">Çıkış Yap</a>
+        </span>
+        <span th:if="${session.loggedInUser == null}">
+            <a th:href="@{/login}">Giriş Yap</a> | <a th:href="@{/register}">Kayıt Ol</a>
+        </span>
+    </div>
+</nav>
+
+<div th:each="room : ${rooms}" class="room">
+    <h2 th:text="${room.name}"></h2>
+    <img th:src="@{'/images/rooms/' + ${room.roomPictureName}}" alt="Room Image" class="room-image" />
+    <p>Fiyat: <span th:text="${room.price}"></span> TRY</p>
+    <p>Oda Boyutu: <span th:text="${room.size}"></span> Kişilik</p>
+    <p>Uygunluk: <span th:text="${room.available ? 'Evet' : 'Hayır'}"></span></p>
+    <a th:href="@{'/reserve?roomId=' + ${room.id}}" class="reserve-button">Rezervasyon Yap</a>
+</div>
+
+</body>
+</html>

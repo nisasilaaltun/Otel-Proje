@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Paneli</title>
+    <link rel="stylesheet" href="/css/adminPanel.css">
+</head>
+<body>
+<div class="admin-panel-container">
+    <!-- Sol Menü (Sidebar) -->
+    <div class="sidebar">
+        <h2>Yönetici Paneli</h2>
+        <a href="/admin/panel">Anasayfa</a>
+        <a href="/admin/manage-users">Kullanıcıları Yönet</a>
+        <a href="/admin/manage-reservations">Rezervasyonları Yönet</a>
+        <a href="/admin/manage-rooms">Odaları Yönet</a>
+        <a href="/logout">Çıkış Yap</a>
+
+    </div>
+
+    <!-- Ana İçerik Alanı -->
+    <div class="main-content">
+        <h1>Hoşgeldiniz, <span th:text="${loggedInAdmin}"></span></h1>
+
+        <div class="card">
+            <h3>Yönetim Seçenekleri</h3>
+            <div class="card-body">
+                <p>Admin panelinde kullanıcıları yönetebilir, rezervasyonları kontrol edebilirsiniz.</p>
+                <button onclick="window.location.href='/admin/manage-users'">Kullanıcıları Yönet</button>
+                <button onclick="window.location.href='/admin/manage-reservations'">Rezervasyonları Yönet</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

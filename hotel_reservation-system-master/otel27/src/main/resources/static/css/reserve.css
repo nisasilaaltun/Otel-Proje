@@ -1,0 +1,363 @@
+/* Genel Ayarlar */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #d5aefc, #a67dff);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    animation: backgroundFade 10s infinite alternate;
+}
+
+/* Arka Plan Geçişi */
+@keyframes backgroundFade {
+    0% {
+        background: linear-gradient(135deg, #d5aefc, #a67dff);
+    }
+    50% {
+        background: linear-gradient(135deg, #a67dff, #7848cc);
+    }
+    100% {
+        background: linear-gradient(135deg, #7848cc, #d5aefc);
+    }
+}
+
+/* Başlık */
+h1 {
+    font-size: 2.8rem;
+    margin-top: 2rem;
+    color: #fff;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Rezervasyon Formu Konteyner */
+.reserve-container {
+    width: 420px; /* 360px'den 420px'e çıkarıldı */
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2.5rem; /* Padding'i de artırdım */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Oda Özellikleri Paneli */
+.room-details {
+    width: 380px; /* 320px'den 380px'e çıkarıldı */
+    background: rgba(255, 255, 255, 0.15);
+    padding: 2rem; /* Padding'i artırdım */
+    border-radius: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Konteyner */
+.container {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem; /* 2.5rem'den 3rem'e çıkarıldı */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    margin: 2rem auto;
+    backdrop-filter: blur(10px);
+    animation: slideUp 1s ease-out;
+    gap: 3rem; /* Boşluğu da artırdım */
+}
+
+/* Flatpickr Takvim Stilleri */
+.flatpickr-calendar {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+    width: 340px !important; /* Takvimi de biraz genişlettim */
+    font-size: 14px;
+    backdrop-filter: blur(10px);
+}
+
+/* Responsive düzenleme */
+@media (max-width: 1024px) {
+    .container {
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .reserve-container {
+        width: 380px;
+    }
+
+    .room-details {
+        width: 340px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+        width: 90%;
+    }
+
+    .reserve-container,
+    .room-details {
+        width: 100%;
+        padding: 1.5rem;
+    }
+}
+/* Oda Özellikleri Paneli */
+.room-details {
+    width: 280px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.room-details h3 {
+    margin-top: 0;
+    color: #f2e1ff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.room-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.room-details ul li {
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #e8d8ff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form */
+.reserve-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Form Başlık */
+.reserve-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #f2e1ff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Elemanları */
+.reserve-form input,
+.reserve-form button,
+.reserve-form label {
+    width: 100%;
+    font-size: 1rem;
+}
+
+/* Form Etiketleri */
+.reserve-form label {
+    text-align: left;
+    font-weight: bold;
+    color: #f7f1ff;
+}
+
+/* Giriş Alanları */
+.reserve-form input[type="text"],
+.reserve-form input[type="date"],
+.reserve-form input[type="number"] {
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #c9a8f4;
+    background: rgba(255, 255, 255, 0.9);
+    color: #5a3e88;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.reserve-form input[type="text"]:read-only {
+    background: rgba(230, 230, 230, 0.8);
+    color: #8470a8;
+}
+
+/* Input Hover ve Focus */
+.reserve-form input:focus {
+    border-color: #7d48d8;
+    box-shadow: 0px 4px 10px rgba(125, 72, 216, 0.3);
+}
+
+/* Oda Görseli */
+.room-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.room-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Rezervasyon Butonu */
+.reserve-form button {
+    background: linear-gradient(135deg, #8a6eff, #6e3ed9);
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    animation: pulse 2s infinite;
+}
+
+.reserve-form button:hover {
+    background: linear-gradient(135deg, #6e3ed9, #502ba6);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Flatpickr Takvim Stilleri */
+.flatpickr-calendar {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+    width: 340px !important;
+    font-size: 14px;
+    backdrop-filter: blur(10px);
+}
+
+.flatpickr-days {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.dayContainer {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+}
+
+.flatpickr-day {
+    border-radius: 6px;
+    margin: 1px;
+    height: 32px;
+    line-height: 32px;
+    color: #5a3e88;
+    width: calc(100% / 7 - 2px) !important;
+    max-width: calc(100% / 7 - 2px) !important;
+}
+
+.flatpickr-day.selected {
+    background: #8a6eff !important;
+    border-color: #8a6eff !important;
+    color: #fff !important;
+}
+
+.flatpickr-day.disabled,
+.flatpickr-day.disabled:hover {
+    background-color: #502ba6 !important;
+    color: #d5aefc !important;
+    text-decoration: line-through;
+    cursor: not-allowed;
+    opacity: 1.0;
+}
+
+.flatpickr-day.today {
+    border: 2px solid #8a6eff;
+}
+
+.flatpickr-months {
+    background: linear-gradient(135deg, #8a6eff, #6e3ed9);
+    border-radius: 15px 15px 0 0;
+    padding: 5px 0;
+}
+
+.flatpickr-month {
+    height: 40px !important;
+}
+
+.flatpickr-current-month {
+    padding-top: 0px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.flatpickr-weekdays {
+    margin-top: 5px;
+}
+
+.flatpickr-weekday {
+    color: #6e3ed9 !important;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.flatpickr-day:hover {
+    background: rgba(138, 110, 255, 0.2);
+}
+
+.numInputWrapper {
+    width: 70px !important;
+}
+
+.flatpickr-monthDropdown-months {
+    height: auto !important;
+}
+/* Animasyonlar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+
+
+    .reserve-form h2 {
+        font-size: 1.5rem;
+    }
+}

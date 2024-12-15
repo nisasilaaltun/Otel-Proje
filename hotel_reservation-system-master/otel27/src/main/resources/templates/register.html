@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otel Rezervasyon - Kayıt Ol</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+</head>
+<body>
+<div class="register-container">
+    <!-- Sol Bölüm -->
+    <div class="left-section">
+        <h1>Otel Rezervasyon Sistemine Hoş Geldiniz</h1>
+        <p>Kolayca rezervasyon yapın ve tatilinizi planlamaya hemen başlayın.</p>
+        <button class="watch-demo-btn">Demo İzle</button>
+    </div>
+
+    <!-- Sağ Bölüm -->
+    <div class="right-section">
+        <h2>Kayıt Ol</h2>
+
+        <!-- Hata Mesajı -->
+        <div class="error-message" th:if="${emailError}">
+            <p th:text="${emailError}"></p>
+        </div>
+
+        <form th:action="@{/register}" method="post">
+            <div class="form-group">
+                <label for="name">Ad:</label>
+                <input type="text" id="name" name="name" th:value="${user.name}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-posta:</label>
+                <input type="email" id="email" name="email" th:value="${user.email}" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Şifre:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Kayıt Ol</button>
+            </div>
+        </form>
+
+        <div class="login-link">
+            <p>Zaten hesabınız var mı? <a th:href="@{/login}">Giriş Yap</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

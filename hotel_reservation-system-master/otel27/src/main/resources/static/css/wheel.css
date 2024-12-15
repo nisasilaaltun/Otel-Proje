@@ -1,0 +1,230 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* Ana sayfadaki çark butonu */
+.wheel-button {
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #8e44ad, #5e3370); /* Mor tonlar */
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.2); /* Gölge için mor */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    animation: subtle-pulse 2s infinite ease-in-out;
+}
+
+.wheel-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.wheel-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(142, 68, 173, 0.3); /* Hover gölgesi */
+    background: linear-gradient(45deg, #5e3370, #4a235a); /* Hover mor tonları */
+}
+
+.wheel-button:hover:before {
+    left: 100%;
+}
+
+@keyframes subtle-pulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(142, 68, 173, 0.2);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(142, 68, 173, 0.4);
+    }
+}
+
+/* Çark Konteyner */
+.wheel-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    perspective: 1000px;
+}
+
+/* Çark Göstergesi */
+.wheel-pointer {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: #ff4444;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Çark */
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 5s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+    transform: rotate(0deg);
+    border: 15px solid #2c3e50;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    background: #fff;
+}
+
+/* Çark Dilimleri */
+.wheel-section {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: transparent;
+    transform-origin: 100% 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    z-index: 1;
+}
+
+/* Dilimlerin renkleri ve açıları */
+.wheel-section:nth-child(1) {
+    background: linear-gradient(135deg, #FF6B6B, #ee5253);
+    transform: rotate(0deg);
+}
+.wheel-section:nth-child(2) {
+    background: linear-gradient(135deg, #4ECDC4, #45B7D1);
+    transform: rotate(45deg);
+}
+.wheel-section:nth-child(3) {
+    background: linear-gradient(135deg, #45B7D1, #2980b9);
+    transform: rotate(90deg);
+}
+.wheel-section:nth-child(4) {
+    background: linear-gradient(135deg, #96CEB4, #6fb98f);
+    transform: rotate(135deg);
+}
+.wheel-section:nth-child(5) {
+    background: linear-gradient(135deg, #D4A5A5, #c0392b);
+    transform: rotate(180deg);
+}
+.wheel-section:nth-child(6) {
+    background: linear-gradient(135deg, #F39C12, #e67e22);
+    transform: rotate(225deg);
+}
+.wheel-section:nth-child(7) {
+    background: linear-gradient(135deg, #9B59B6, #8e44ad);
+    transform: rotate(270deg);
+}
+.wheel-section:nth-child(8) {
+    background: linear-gradient(135deg, #3498DB, #2980b9);
+    transform: rotate(315deg);
+}
+
+/* Çevirme Butonu */
+#spinButton {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 20px;
+    background: linear-gradient(45deg, #ff6f61, #ff3b2d);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 111, 97, 0.3);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Hover efekti */
+#spinButton:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(255, 111, 97, 0.4);
+    background: linear-gradient(45deg, #ff3b2d, #e62e2e);
+}
+
+/* Pasif durum */
+#spinButton:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    animation: none;
+}
+
+/* Sonuç gösterimi için stil */
+#result {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #2c3e50;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Hover öncesi dikkat çeksin */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.3), 0 0 0 rgba(255, 111, 97, 0);
+    }
+    50% {
+        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.3), 0 0 30px rgba(255, 111, 97, 0.4);
+    }
+}
+
+/* Fade-in animasyonu */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
